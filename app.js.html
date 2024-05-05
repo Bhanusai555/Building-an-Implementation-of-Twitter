@@ -1,0 +1,22 @@
+// Fetch tweets from Firebase Firestore
+function fetchTweets() {
+    // Fetch tweets from Firestore collection
+    // Replace this with your actual code to fetch tweets from Firestore
+    const tweets = [
+        { content: "First tweet", createdAt: "2024-05-04" },
+        { content: "Second tweet", createdAt: "2024-05-03" }
+    ];
+
+    // Compile the Handlebars template
+    const tweetSource = document.getElementById("tweetTemplate").innerHTML;
+    const tweetTemplate = Handlebars.compile(tweetSource);
+
+    // Render the tweets using the compiled template
+    const tweetsHtml = tweetTemplate({ tweets: tweets });
+
+    // Insert the rendered tweets into the tweets container
+    document.getElementById("tweetsContainer").innerHTML = tweetsHtml;
+}
+
+// Call fetchTweets() to fetch and display tweets when the page loads
+window.onload = fetchTweets;
